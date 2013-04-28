@@ -1,0 +1,168 @@
+html, body {
+    height: 100%;
+}
+
+body {
+	background: #ececec;
+	color: #111111;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	padding: 20px;
+}
+
+section#main-section {
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: start;
+    height: 100%;
+}
+
+section#menu-section {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+article {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+fieldset {
+    border: none;
+    width: 600px;
+    background: #fff;
+    padding: 20px 20px 20px 20px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-khtml-border-radius: 15px;
+    border-bottom: 2px solid #cdcdcd;
+}
+
+legend {
+    font-size: 36px;
+    color: #acacac;
+    font-style: italic;
+}
+
+h2 {
+    font-weight: normal;
+    color: #767676;
+}
+
+ul {
+    list-style-type: none;
+    -webkit-padding-start: 0px;
+    -webkit-margin-after: 0;
+    -webkit-margin-before: 0;
+    overflow: hidden;
+}
+
+ul#menu {
+    margin-top: 20px;
+}
+
+ul#navigation {
+    float: right;
+}
+
+#main-section li {
+    display: block;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+ul#navigation li {
+    float: left;
+}
+
+a {
+    text-decoration: none;
+}
+
+span.label a:hover {
+    color: #dcdcdc;
+}
+
+label, span.label, span.label a {
+    display: block;
+    float: left;
+    width: 100px;
+    cursor: pointer;
+    color: #33b5e5;
+    font-size: 18px;
+}
+
+.home span.label, .home span.label a {
+    font-size: 64px;
+    width: 550px;
+}
+
+.add-verification li {
+    display: inline;
+}
+
+#header {
+    float: left;
+}
+
+#search {
+    float: right;
+}
+
+#search {
+    border-bottom: 1px solid #999;
+}
+#search input, .ui-widget {
+    margin-top: 4px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 1em;
+}
+
+.clear {
+    clear: both;
+}
+
+input:not([type=radio]),
+textarea,
+span.details {
+	background: #ffffff;
+	border: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	border-radius: 3px;
+	font: italic 13px Georgia, "Times New Roman", Times, serif;
+	outline: none;
+	padding: 5px;
+	width: 200px;
+}
+
+input:not([type=submit]):focus,
+textarea:focus {
+	background: #eaeaea;
+}
+
+input[type=submit] {
+	background: #00ff00;
+	border: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	border-radius: 5px;
+	color: #ffffff;
+	display: block;
+	font: 18px Georgia, "Times New Roman", Times, serif;
+	letter-spacing: 1px;
+	padding: 7px 25px;
+	text-shadow: 0 1px 1px #000000;
+}
+
+input[type=submit]:hover {
+	background: rgb(6, 190, 6);
+	cursor: pointer;
+}
+
+form#books ul.errorlist li {
+    color: #F50606;
+    font-size: 0.8em;
+    margin-left: 100px;
+}

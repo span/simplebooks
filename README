@@ -1,0 +1,13 @@
+This is a small web application that can be used to add verifications when doing your taxes.
+
+It uses Python and Django.
+
+Current features
+------------------
+Add a verification
+View all verfications
+Filter verifications by title with search
+View results
+
+Note that the only accounts that are supported at the moment are "income" and "expense". In future versions the account will auto complete and I plan 
+to add support for account numbers as well.

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>SimpleBooks</title>
+    <link rel="stylesheet" href="/static/simplebooksform/css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/static/simplebooksform/css/main.css" type="text/css" media="screen">
+    
+   
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}simplebooksform/js/main.js"></script> 
+</head>
+<body id="index">
+    <section id="menu-section">
+        {% include "menu.html" %}
+    </section>
+    <section id="main-section">
+        <form id="books" method="post" action="/add-verification">
+            {% csrf_token %}
+            <fieldset>
+                <span><legend>{{ message }}</legend></span>
+                <ul>
+                    {% for field in form %}
+                    <li>
+                        {{ field.label_tag }} {{ field }}
+                        {{ field.errors }}
+                    </li>
+                    {% endfor %}
+                    <li>
+                        <input name="submit" id="submit" type="submit"/>
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>

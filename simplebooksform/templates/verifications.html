@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>SimpleBooks</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="static/simplebooksform/css/reset.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" media="screen">    
+    <link rel="stylesheet" href="static/simplebooksform/css/main.css" type="text/css" media="screen">
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var all_articles = $('article');
+      $("#search-input").autocomplete({
+        source: "/api/get_verifications/",
+        minLength: 1,
+        select: function(event, ui) {
+            console.log(ui);
+            all_articles.hide();
+            $('#article-' + ui.item.id).show();
+            return false;
+        }
+      }).keyup(function(event) {
+          console.log($(this).val());
+          if($(this).val() == "") {
+              all_articles.show();
+          }
+      });
+    });
+    </script>
+</head>
+<body>
+    <section id="menu-section">
+        {% include "menu.html" %}
+    </section>
+    <section id="main-section">
+        <fieldset>
+            <section id="header">
+                <span><legend>View verifications</legend></span>
+            </section>
+            <section id="search" class="ui-widget">
+              <input id="search-input" type="text" placeholder="Search">
+            </section>
+            <div class="clear"></div>
+            <section>
+                {% for verification in verifications %}
+                <article id="article-{{ verification.id }}">
+                    <h2>{{ verification.id }}. {{ verification.title}}</h2>
+                    <p>
+                        <span class="label">Amount:</span>
+                        <span class="detail">{{ verification.amount }}</span>
+                    </p>
+                    <p>
+                        <span class="label">Account:</span> 
+                        <span class="detail">{{ verification.account }}</span>
+                    </p>
+                    <p>
+                        <span class="label">Tax 6%:</span> 
+                        <span class="detail">{{ verification.tax6 }}</span> 
+                    </p>
+                    <p>
+                        <span class="label">Tax 12%:</span> 
+                        <span class="detail">{{ verification.tax12 }}</span> 
+                    </p>
+                    <p>
+                        <span class="label">Tax 25%:</span> 
+                        <span class="detail">{{ verification.tax25 }}</span> 
+                    </p>
+                    <p>
+                        <span class="label">Timestamp:</span> 
+                        <span class="detail">{{ verification.timestamp }}</span> 
+                    </p>
+                </article>
+                {% endfor %}
+            </section>
+        </fieldset>
+    </section>
+</body>
+</html>

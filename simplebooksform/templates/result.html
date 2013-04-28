@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Simple books</title>
+    <link rel="stylesheet" href="/static/simplebooksform/css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" media="screen">    
+<link rel="stylesheet" href="static/simplebooksform/css/main.css" type="text/css" media="screen">
+
+</head>
+<body>
+    <section id="menu-section">
+        {% include "menu.html" %}
+    </section>
+    <section id="main-section">
+        <fieldset>
+            <span><legend>Results</legend></span>
+        <article>
+            <p>
+                <span class="label">Income</span>
+                <span class="detail">{{ results.income }}</span>
+            </p>
+            <p>
+                <span class="label">Expense</span>
+                <span class="detail">{{ results.expense }}</span>
+            </p>
+            <p>
+                <span class="label">Tax 6%</span>
+                <span class="detail">{{ results.tax6 }}</span>
+            </p>
+            <p>
+                <span class="label">Tax 12%</span>
+                <span class="detail">{{ results.tax12 }}</span>
+            </p>
+            <p>
+                <span class="label">Tax 25%</span>
+                <span class="detail">{{ results.tax25 }}</span>
+            </p>
+            <p>
+                <span class="label">Tax total</span>
+                <span class="detail">{{ results.tax_total }}</span>
+            </p>
+            <p>
+                <span class="label">Subtotal</span>
+                <span class="detail">{{ results.subtotal }}</span>
+            </p>
+        </article>
+        </fieldset>
+    </section>
+</body>
+</html>
