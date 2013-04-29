@@ -7,19 +7,19 @@ are used.
 
 Current features
 ------------------
-Add a verification
-View all verfications
-Filter verifications by title with search
-View results
+* Add a verification
+* View all verfications
+* Filter verifications by title with search
+* View results
 
 Note that the only accounts that are supported at the moment are "income" and "expense". In future versions the account will auto complete and I plan 
 to add support for account numbers as well.
 
 Planned features
 -----------------
-File upload to store receipt or invoice
-Custom accounts
-Autocomplete on accounts
-Account results overview
-Handle different years
-Pie charts!
+* File upload to store receipt or invoice
+* Custom accounts
+* Autocomplete on accounts
+* Account results overview
+* Handle different years
+* Pie charts!
