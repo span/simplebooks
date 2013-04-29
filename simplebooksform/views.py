@@ -4,7 +4,8 @@ from django.db.models import Sum
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from simplebooksform.models import verification, verification_form
+from simplebooksform.models import verification
+from simplebooksform.forms import verification_form
 
 
 def home(request):
@@ -13,11 +14,13 @@ def home(request):
 def add_verification(request):
     # Create new verification form model
     if request.method == "POST":
-        form = verification_form(request.POST)
+        form = verification_form(request.POST, request.FILES)
         if form.is_valid():
             # Create new verification
             form.save()
             message = "Verification was saved!"
+        else:
+            message = "Invalid form!"
     else:
         form = verification_form()
         message = "Add a title and press Enter"

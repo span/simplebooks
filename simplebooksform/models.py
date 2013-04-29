@@ -1,6 +1,14 @@
+import os
 from datetime import datetime
 from django.db import models
-from django.forms import ModelForm
+
+def update_filename(instance, filename):
+    year = str(datetime.today().year)
+    path = "documents/" + year
+    count = verification.objects.count()
+    ext = filename.split('.')[-1]
+    format = str(count) + "-" + instance.title + "-" + instance.account + "." + ext
+    return os.path.join(path, format)
 
 class verification(models.Model):
     title = models.CharField(max_length = 40)
@@ -10,12 +18,35 @@ class verification(models.Model):
     tax12 = models.IntegerField(blank = True, null = True)
     tax25 = models.IntegerField(blank = True, null = True)
     timestamp = models.DateTimeField(default = datetime.now)
+    invoice = models.FileField(upload_to = update_filename)
     
     def __unicode__(self):
             # Make the model readable.
             return self.title
-            
-class verification_form(ModelForm):
-    # Auto generate a form to create verification models
-    class Meta:
-        model = verification
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

@@ -15,7 +15,7 @@
         {% include "menu.html" %}
     </section>
     <section id="main-section">
-        <form id="books" method="post" action="/add-verification">
+        <form id="books" method="post" action="/add-verification" enctype="multipart/form-data">
             {% csrf_token %}
             <fieldset>
                 <span><legend>{{ message }}</legend></span>
