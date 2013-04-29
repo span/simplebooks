@@ -3,7 +3,7 @@ $(document).ready(function() {
     var ENTER_KEY = 13;
     var legend = $('form#books legend');
     
-    //$('#books li:not(:first)').hide();
+    $('#books li:not(:first)').hide();
     $('#books li:first input').focus();
     
     $('#books input').keydown(function(event) {

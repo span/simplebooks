@@ -20,7 +20,7 @@ def add_verification(request):
             message = "Verification was saved!"
     else:
         form = verification_form()
-        message = "Add a verification"
+        message = "Add a title and press Enter"
         
     variables = RequestContext(request, {'form' : form, 'message' : message})
     
