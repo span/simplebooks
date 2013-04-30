@@ -1,2 +1,4 @@
 *.DS_store
 *__init__.py*
+simplebooks/settings.py
+simplebooks/settings.pyc
