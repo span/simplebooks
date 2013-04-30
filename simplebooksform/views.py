@@ -7,7 +7,6 @@ from django.template import RequestContext
 from simplebooksform.models import verification
 from simplebooksform.forms import verification_form
 
-
 def home(request):
     return render_to_response("index.html")
     
@@ -69,12 +68,21 @@ def result(request):
     
     return render_to_response('result.html', {'results' : results})
     
+
 def string_to_int(s):
     try:
         x = int(s)
     except ValueError:
         x = 0
     return x
-    
+
+def int_to_str(i):
+    try:
+        s = str(i)
+    except ValueError:
+        s = ''
+    return s
+
 def xstr(s):
     return '0' if s is None else str(s)
+

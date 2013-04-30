@@ -6,7 +6,7 @@ $(document).ready(function() {
     $('#books li:not(:first)').hide();
     $('#books li:first input').focus();
     
-    $('#books input').keydown(function(event) {
+    $('#books input:not(input:file)').keydown(function(event) {
         var keyHit = event.which;
         if ((!event.shiftKey && keyHit == TAB_KEY) || keyHit == ENTER_KEY) {
              event.preventDefault();
@@ -20,13 +20,15 @@ $(document).ready(function() {
                  var forminput = $(this).find('input');
                  var name = forminput.attr('name');
                  var title = "Type in " + name + " and press Enter";
-                 
-                 if(name == 'submit') {
-                     title = "You are done, now you can save"
-                 }
                  forminput.focus();
                  legend.text(title);
              });
          }
     }); 
+    
+    $("input:file").on('change', function () {
+        $(this).parent().next('li').slideDown(300, function() {
+            legend.text("You are done, now you can save");
+        });
+    });
 });
