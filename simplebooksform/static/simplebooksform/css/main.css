@@ -100,6 +100,10 @@ label, span.label, span.label a {
     font-size: 18px;
 }
 
+#results span.label {
+    width: 150px;
+}
+
 .home span.label, .home span.label a {
     font-size: 64px;
     width: 550px;
