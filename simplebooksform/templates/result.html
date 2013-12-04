@@ -5,7 +5,7 @@
     <title>Simple books</title>
     <link rel="stylesheet" href="/static/simplebooksform/css/reset.css" type="text/css" media="screen">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" media="screen">    
-<link rel="stylesheet" href="static/simplebooksform/css/main.css" type="text/css" media="screen">
+<link rel="stylesheet" href="/static/simplebooksform/css/main.css" type="text/css" media="screen">
 
 </head>
 <body>
@@ -14,7 +14,9 @@
     </section>
     <section id="main-section">
         <fieldset>
-            <span><legend>Results</legend></span>
+            <span><legend>Results <span>
+              <a {% if results.year == '2013' %} class="selected" {% endif %} href="/result/2013">2013</a> | 
+              <a {% if results.year == '2014' %} class="selected" {% endif %} href="/result/2014">2014</a></span></legend></span>
         <article id="results">
             <p>
                 <span class="label">Income</span>

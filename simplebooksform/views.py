@@ -50,13 +50,13 @@ def get_verifications(request):
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
     
-def result(request):
-    expense = verification.objects.filter(account = 'expense').aggregate(Sum('amount'))
-    income = verification.objects.filter(account = 'income').aggregate(Sum('amount'))    
-    tax6in = verification.objects.filter(account = 'expense').aggregate(Sum('tax6'))
-    tax12in = verification.objects.filter(account = 'expense').aggregate(Sum('tax12'))
-    tax25in = verification.objects.filter(account = 'expense').aggregate(Sum('tax25'))
-    tax25out = verification.objects.filter(account = 'income').aggregate(Sum('tax25'))
+def result(request, year = '2013'):
+    expense = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('amount'))
+    income = verification.objects.filter(account = 'income', timestamp__year = year).aggregate(Sum('amount'))    
+    tax6in = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('tax6'))
+    tax12in = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('tax12'))
+    tax25in = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('tax25'))
+    tax25out = verification.objects.filter(account = 'income', timestamp__year = year).aggregate(Sum('tax25'))
     
     # TODO
     # Refactor these requests to a single db query and pass in a better structure
@@ -72,6 +72,7 @@ def result(request):
     results['tax_out_total'] = results['tax25out']
     results['tax_subtotal'] = str_to_int(results['tax_out_total']) - results['tax_in_total']
     results['subtotal'] = str_to_int(results['income']) - str_to_int(results['expense'])
+    results['year'] = year
     
     return render_to_response('result.html', {'results' : results})
     

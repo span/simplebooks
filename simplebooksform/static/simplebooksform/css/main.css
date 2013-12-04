@@ -52,6 +52,15 @@ legend {
     font-style: italic;
 }
 
+legend span, legend a {
+  font-size: 14px;
+  color: #33b5e5;
+}
+
+legend a.selected {
+  font-weight: bold;
+}
+
 h2 {
     font-weight: normal;
     color: #767676;
