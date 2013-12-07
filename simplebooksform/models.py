@@ -3,7 +3,7 @@ from datetime import datetime
 from django.db import models
 
 def update_filename(instance, filename):
-    year = str(datetime.today().year)
+    year = '2014'
     path = "documents/" + year
     count = verification.objects.count()
     ext = filename.split('.')[-1]

@@ -50,7 +50,7 @@ def get_verifications(request):
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
     
-def result(request, year = '2013'):
+def result(request, year = '2012'):
     expense = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('amount'))
     income = verification.objects.filter(account = 'income', timestamp__year = year).aggregate(Sum('amount'))    
     tax6in = verification.objects.filter(account = 'expense', timestamp__year = year).aggregate(Sum('tax6'))
